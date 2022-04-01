@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.2rem;
+  color: #343a40;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+.about {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.home {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-background {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+input {
+  height: 3rem;
+  width: 30rem;
+  /* margin-top: 2rem; */
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+p {
+  word-spacing: 2px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: #000;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.error-message {
+  margin-bottom: 1rem;
+}
+
+.btn:active,
+.btn:hover {
+  background-color: #0f0f0f;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  background: transparent;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: blue;
+  text-indent: -9999em;
+  margin: 88px auto;
+  margin-top: 20rem;
+  position: relative;
+  font-size: 3rem;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+.no-search-message {
+  text-align: center;
+  margin-top: 6rem;
+}
