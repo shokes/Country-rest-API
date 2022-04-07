@@ -9,7 +9,7 @@ const AppContext = React.createContext();
 // creating app provider
 
 const AppProvider = function ({ children }) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('nigeria');
 
@@ -18,8 +18,30 @@ const AppProvider = function ({ children }) {
     try {
       const response = await fetch(`${url}${searchTerm}`);
       const data = await response.json();
-      console.log(data);
-    } catch (error) {}
+      const countriesData = data;
+      console.log(countriesData);
+      setLoading(false);
+
+      if (countriesData) {
+        const newCountriesData = countriesData.map((item) => {
+          const { population, region, flags, name, capital } = item;
+
+          return {
+            population: population,
+            continent: region,
+            flag: flags.png,
+            name: name.common,
+            capital: capital[0],
+          };
+        });
+
+        setCountries(newCountriesData);
+      } else {
+        setCountries([]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -27,7 +49,9 @@ const AppProvider = function ({ children }) {
   }, [searchTerm]);
 
   return (
-    <AppContext.Provider value={{ loading, setLoading, countries }}>
+    <AppContext.Provider
+      value={{ loading, setLoading, countries, setSearchTerm }}
+    >
       {children}
     </AppContext.Provider>
   );
