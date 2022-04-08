@@ -1,14 +1,18 @@
 import { useRef } from 'react';
-
+import React from 'react';
 import { useGlobalContext } from '../context';
 
 const SearchForm = function () {
   const { setSearchTerm } = useGlobalContext();
-  const container = useRef(null);
+  const searchValue = useRef('');
 
   const inputHandler = () => {
-    setSearchTerm(container.current.value);
+    setSearchTerm(searchValue.current.value);
   };
+
+  React.useEffect(() => {
+    searchValue.current.focus();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +25,7 @@ const SearchForm = function () {
           name='name'
           id='name'
           placeholder='Search for a country'
-          ref={container}
+          ref={searchValue}
           onChange={inputHandler}
         ></input>
       </form>

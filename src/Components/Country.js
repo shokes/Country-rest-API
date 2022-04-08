@@ -8,11 +8,21 @@ const Country = function ({ population, continent, flag, name, capital }) {
       <h2 className='country-name'>{name}</h2>
       <div className='country-details'>
         <div className='country-info'>
-          <h2>Population: {population}</h2>
-          <h2>Capital: {capital}</h2>
-          <h2>Continent: {continent}</h2>
+          {/* <h2>Population: {population}</h2> */}
+          <p className='details'>
+            <span>Population: </span>
+            {population}
+          </p>
+          <p className='details'>
+            <span>Capital: </span>
+            {capital}
+          </p>
+          <p className='details'>
+            <span>Continent: </span>
+            {continent}
+          </p>
         </div>
-        <Link to='/Country/:id' className='btn more-info'>
+        <Link to={`/Country/${capital}`} className='btn more-info'>
           More info
         </Link>
       </div>

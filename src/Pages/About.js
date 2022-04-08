@@ -1,6 +1,6 @@
 const About = function () {
   return (
-    <section className='container'>
+    <section className='container section-about'>
       <h2 className='section-title'>About</h2>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus,

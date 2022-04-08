@@ -11,7 +11,7 @@ const AppContext = React.createContext();
 const AppProvider = function ({ children }) {
   const [loading, setLoading] = useState(true);
   const [countries, setCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('nigeria');
+  const [searchTerm, setSearchTerm] = useState('am');
 
   const fetchCountries = async () => {
     setLoading(true);
@@ -19,7 +19,7 @@ const AppProvider = function ({ children }) {
       const response = await fetch(`${url}${searchTerm}`);
       const data = await response.json();
       const countriesData = data;
-      console.log(countriesData);
+      // console.log(countriesData);
       setLoading(false);
 
       if (countriesData) {
