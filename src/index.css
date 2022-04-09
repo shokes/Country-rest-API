@@ -159,7 +159,7 @@ p {
   height: 30rem;
 }
 
-img {
+.country-flag {
   width: 100%;
   height: 50%;
   border-top-left-radius: 9px;
@@ -193,4 +193,23 @@ span {
 
 .section-about {
   color: #e9ecef;
+}
+
+.flag-size {
+  width: 45%;
+  height: 45%;
+  border-radius: 9px;
+}
+
+.country-flex {
+  display: flex;
+  margin-top: 2rem;
+  gap: 3rem;
+}
+
+.single-country-name {
+  text-align: center;
+  font-size: 3rem;
+
+  font-weight: 800;
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Country = function ({ population, continent, flag, name, capital }) {
   return (
     <section className='country-box'>
-      <img src={flag} alt={continent} />
+      <img src={flag} alt={continent} className='country-flag' />
 
       <h2 className='country-name'>{name}</h2>
       <div className='country-details'>
@@ -18,7 +18,7 @@ const Country = function ({ population, continent, flag, name, capital }) {
             {capital}
           </p>
           <p className='details'>
-            <span>Continent: </span>
+            <span>Region: </span>
             {continent}
           </p>
         </div>
