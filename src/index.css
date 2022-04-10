@@ -278,13 +278,17 @@ span {
   }
 
   .country-flex {
-    gap: 1rem;
-    align-items: flex-start;
-    flex-direction: column;
+    display: grid;
+    grid-row: 39rem;
+
+    gap: 0;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
   }
 
   .flag-size {
-    width: 58%;
+    width: 81%;
+    height: 100%;
   }
 }
 @media (max-width: 33em) {
