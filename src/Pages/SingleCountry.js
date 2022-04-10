@@ -25,9 +25,10 @@ const SingleCountry = function () {
             currencies,
             capital,
             name,
-            // languages,
-            border: border,
+            area: area,
+            border,
             subregion: subregion,
+            status,
           } = countryData;
 
           const newCountry = {
@@ -37,10 +38,11 @@ const SingleCountry = function () {
             capital: capital[0],
             currency: { currencies }.name,
             name: name.common,
-            border,
-            // languages: languages,
+            area,
             subregion,
+            status,
           };
+
           setCountry(newCountry);
           setLoading(false);
         }
@@ -58,54 +60,47 @@ const SingleCountry = function () {
   if (!country) {
     return <h2>no country data to display</h2>;
   } else {
-    const {
-      population,
-      region,
-      flag,
-      capital,
-      currency,
-      subregion,
-      name,
-      languages,
-      border,
-    } = country;
+    const { population, region, flag, capital, status, subregion, name, area } =
+      country;
     return (
       <div className='container'>
-        <Link to='/' className='btn btn-home'>
-          Back to home
+        <Link to='/' className='btn'>
+          &larr; Back home
         </Link>
         <p className='single-country-name'> {name}</p>
         <div className='country-flex'>
           <img src={flag} alt={name} className='flag-size' />
           <div className='single-country-detail'>
-            <p>
-              <span>Native name: </span>
+            <p className='detail'>
+              <span className='span'>Native name: </span>
               {name}
             </p>
-            <p>
-              <span>Subregion: </span>
+
+            <p className='detail'>
+              <span className='span'>Capital: </span>
+              {capital}
+            </p>
+            <p className='detail'>
+              <span className='span'>Region: </span>
+              {region}
+            </p>
+            <p className='detail'>
+              <span className='span'>Subregion: </span>
               {subregion}
             </p>
 
-            <p>
-              <span>Capital: </span>
-              {capital}
+            <p className='detail'>
+              <span className='span'>Population: </span>
+              {(population / 1000000).toFixed(1)}
             </p>
-
-            <p>
-              <span>Region: </span>
-              {region}
+            <p className='detail'>
+              <span className='span'>Area: </span>
+              {area}
             </p>
-            <p>
-              <span>Population: </span>
-              {population}
+            <p className='detail'>
+              <span className='span'>Status: </span>
+              {status}
             </p>
-            {/* <p>
-              <span>Border: </span>
-              {border.map((item, index) => {
-                return item ? <div key={index}>{item}</div> : null;
-              })}
-            </p> */}
           </div>
         </div>
       </div>

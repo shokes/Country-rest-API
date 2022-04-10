@@ -4,7 +4,7 @@ import Country from './Country';
 
 const CountryList = function () {
   const { loading, countries } = useGlobalContext();
-  console.log(countries);
+ 
 
   if (loading) {
     return (

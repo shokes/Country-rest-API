@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 const Country = function ({ population, continent, flag, name, capital }) {
   return (
     <section className='country-box'>
-      <img src={flag} alt={continent} className='country-flag' />
+      <img src={flag} alt={continent} className='country-flag'/>
 
       <h2 className='country-name'>{name}</h2>
       <div className='country-details'>
         <div className='country-info'>
-          {/* <h2>Population: {population}</h2> */}
           <p className='details'>
             <span>Population: </span>
-            {population}
+            {(population / 1000000).toFixed(2)}
           </p>
           <p className='details'>
             <span>Capital: </span>
@@ -23,7 +22,7 @@ const Country = function ({ population, continent, flag, name, capital }) {
           </p>
         </div>
         <Link to={`/Country/${capital}`} className='btn more-info'>
-          More info
+          More info &rarr;
         </Link>
       </div>
     </section>
