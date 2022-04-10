@@ -207,6 +207,7 @@ span {
   margin-top: 2rem;
   gap: 6rem;
   align-items: center;
+  color: #fff;
 }
 
 .single-country-name {
@@ -214,6 +215,7 @@ span {
   font-size: 3rem;
   margin-top: 1rem;
   font-weight: 800;
+  color: #fff;
 }
 
 .single-country-detail {
@@ -227,6 +229,7 @@ span {
 
 .span {
   font-size: 2rem;
+  color: #fff;
 }
 
 /* MEDIA QUERIES */
@@ -256,6 +259,16 @@ span {
 @media (max-width: 46em) {
   .container {
     max-width: 30rem;
+  }
+  .single-country-name {
+    font-size: 2rem;
+  }
+  .detail {
+    font-size: 1.2rem;
+  }
+
+  .span {
+    font-size: 1.5rem;
   }
 
   .grid {
