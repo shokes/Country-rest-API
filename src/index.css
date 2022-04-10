@@ -198,7 +198,7 @@ span {
 
 .flag-size {
   width: 45%;
-  height: 45%;
+  /* height: 45%; */
   border-radius: 9px;
 }
 
@@ -284,6 +284,10 @@ span {
     gap: 0;
     grid-template-columns: 1fr;
     row-gap: 2rem;
+  }
+
+  .flag-size {
+    width: 80%;
   }
 }
 @media (max-width: 33em) {
