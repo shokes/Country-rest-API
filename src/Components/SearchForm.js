@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import React from 'react';
 import { useGlobalContext } from '../context';
+import { BiSearchAlt2 } from 'react-icons/fa';
 
 const SearchForm = function () {
   const { setSearchTerm } = useGlobalContext();
