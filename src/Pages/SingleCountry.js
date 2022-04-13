@@ -19,15 +19,14 @@ const SingleCountry = function () {
         console.log(countryData);
         if (countryData) {
           const {
-            population: population,
-            region: region,
+            population,
+            region,
             flags,
-            currencies,
             capital,
             name,
-            area: area,
+            area,
             border,
-            subregion: subregion,
+            subregion,
             status,
           } = countryData;
 
@@ -36,11 +35,11 @@ const SingleCountry = function () {
             region,
             flag: flags.png,
             capital: capital[0],
-            currency: { currencies }.name,
             name: name.common,
             area,
             subregion,
             status,
+            border: border,
           };
 
           setCountry(newCountry);
@@ -58,7 +57,7 @@ const SingleCountry = function () {
   }
 
   if (!country) {
-    return <h2>no country data to display</h2>;
+    return <h2>no country information to display</h2>;
   } else {
     const { population, region, flag, capital, status, subregion, name, area } =
       country;

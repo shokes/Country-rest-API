@@ -19,7 +19,7 @@ const AppProvider = function ({ children }) {
       const response = await fetch(`${url}${searchTerm}`);
       const data = await response.json();
       const countriesData = data;
-      // console.log(countriesData);
+      //console.log(countriesData);
       setLoading(false);
 
       if (countriesData) {
@@ -27,8 +27,8 @@ const AppProvider = function ({ children }) {
           const { population, region, flags, name, capital } = item;
 
           return {
-            population: population,
-            continent: region,
+            population,
+            region,
             flag: flags.png,
             name: name.common,
             capital: capital[0],
@@ -41,6 +41,7 @@ const AppProvider = function ({ children }) {
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
