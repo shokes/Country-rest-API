@@ -264,7 +264,7 @@ span {
 
 .select {
   height: 3rem;
-  width: 13rem;
+  width: 11.3rem;
   border-radius: 8px;
   padding: 0.7rem;
   font-size: 1.2rem;
@@ -297,6 +297,14 @@ span {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
+  }
+
+  .input-flex {
+    flex-direction: column;
+  }
+
+  input {
+    margin-bottom: 1rem;
   }
 
   .country-flex {
