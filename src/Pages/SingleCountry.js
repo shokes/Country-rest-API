@@ -16,7 +16,7 @@ const SingleCountry = function () {
         const response = await fetch(`${url}${capital}`);
         const data = await response.json();
         const countryData = data[0];
-        console.log(countryData);
+        //  console.log(countryData);
         if (countryData) {
           const {
             population,
@@ -25,7 +25,7 @@ const SingleCountry = function () {
             capital,
             name,
             area,
-            border,
+            borders,
             subregion,
             status,
           } = countryData;
@@ -39,7 +39,7 @@ const SingleCountry = function () {
             area,
             subregion,
             status,
-            border: border,
+            borders: borders ? borders.join(', ') : null,
           };
 
           setCountry(newCountry);
@@ -59,8 +59,17 @@ const SingleCountry = function () {
   if (!country) {
     return <h2>no country information to display</h2>;
   } else {
-    const { population, region, flag, capital, status, subregion, name, area } =
-      country;
+    const {
+      population,
+      region,
+      flag,
+      capital,
+      status,
+      subregion,
+      name,
+      borders,
+      area,
+    } = country;
     return (
       <div className='container'>
         <Link to='/' className='btn'>
@@ -78,6 +87,11 @@ const SingleCountry = function () {
             <p className='detail'>
               <span className='span'>Capital: </span>
               {capital}
+            </p>
+
+            <p className='detail'>
+              <span className='span'>Border countries: </span>
+              {borders}
             </p>
             <p className='detail'>
               <span className='span'>Region: </span>
