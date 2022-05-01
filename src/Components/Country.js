@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Country = function ({ population, region, flag, name, capital }) {
   return (
-    <section className='country-box'>
+    <Link to={`/Country/${capital}`} className='country-box'>
       <img src={flag} alt={region} className='country-flag' />
 
       <h2 className='country-name'>{name}</h2>
@@ -10,7 +10,7 @@ const Country = function ({ population, region, flag, name, capital }) {
         <div className='country-info'>
           <p className='details'>
             <span>Population: </span>
-            {(population / 1000000).toFixed(2)}
+            {(population / 1000000).toFixed(2)} million
           </p>
           <p className='details'>
             <span>Capital: </span>
@@ -21,11 +21,8 @@ const Country = function ({ population, region, flag, name, capital }) {
             {region}
           </p>
         </div>
-        <Link to={`/Country/${capital}`} className='btn more-info'>
-          More info &rarr;
-        </Link>
       </div>
-    </section>
+    </Link>
   );
 };
 export default Country;

@@ -16,7 +16,7 @@ const SingleCountry = function () {
         const response = await fetch(`${url}${capital}`);
         const data = await response.json();
         const countryData = data[0];
-        //  console.log(countryData);
+        console.log(countryData);
         if (countryData) {
           const {
             population,
@@ -104,7 +104,7 @@ const SingleCountry = function () {
 
             <p className='detail'>
               <span className='span'>Population: </span>
-              {(population / 1000000).toFixed(1)}
+              {(population / 1000000).toFixed(1)} million
             </p>
             <p className='detail'>
               <span className='span'>Area: </span>
