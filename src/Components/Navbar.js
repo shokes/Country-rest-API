@@ -22,11 +22,11 @@ const Navbar = function () {
         <Link to='/' className='home'>
           Country Info
         </Link>
-        <div>
+        {/* <div>
           <Link to='/about' className='about'>
             About
           </Link>
-        </div>
+        </div> */}
         <div onClick={toggleHandler}>
           {theme === 'light-theme' ? (
             <p className='theme-icon'>
