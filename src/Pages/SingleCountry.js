@@ -13,10 +13,11 @@ const SingleCountry = function () {
     const getCountry = async () => {
       try {
         setLoading(true);
+
         const response = await fetch(`${url}${capital}`);
         const data = await response.json();
         const countryData = data[0];
-        console.log(countryData);
+
         if (countryData) {
           const {
             population,
@@ -39,10 +40,11 @@ const SingleCountry = function () {
             area,
             subregion,
             status,
-            borders: borders ? borders.join(', ') : null,
+            borders: borders ? borders.join(', ') : 'No Countries',
           };
 
           setCountry(newCountry);
+
           setLoading(false);
         }
       } catch (error) {
@@ -104,7 +106,7 @@ const SingleCountry = function () {
 
             <p className='detail'>
               <span className='span'>Population: </span>
-              {(population / 1000000).toFixed(1)} million
+              {(population / 1000000).toFixed(2)} million
             </p>
             <p className='detail'>
               <span className='span'>Area: </span>

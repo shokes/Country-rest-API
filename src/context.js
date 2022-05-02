@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useReducer, useRef } from 'react';
+import reducer from './reducer';
 
 // creating global context
 
@@ -10,25 +11,30 @@ const AppContext = React.createContext();
 // creating app provider
 
 const AppProvider = function ({ children }) {
-  const [loading, setLoading] = useState(true);
-  const [countries, setCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('am');
-  const [region, setRegion] = useState('');
+  const initialState = {
+    loading: true,
+    countries: [],
+    region: '',
+    searchTerm: 'am',
+    country: null,
+    theme: 'light-theme',
+  };
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const searchValue = useRef('');
   const fetchCountries = async () => {
-    setLoading(true);
+    dispatch({ type: 'SET_LOADING' });
     let url;
-    if (region) {
-      url = `${regionUrl}${region}`;
+    if (state.region) {
+      url = `${regionUrl}${state.region}`;
     } else {
-      url = `${MainUrl}${searchTerm}`;
+      url = `${MainUrl}${state.searchTerm}`;
     }
     try {
       const response = await fetch(`${url}`);
       const data = await response.json();
       const countriesData = data;
-
-      setLoading(false);
 
       if (countriesData) {
         const newCountriesData = countriesData.map((item) => {
@@ -42,36 +48,51 @@ const AppProvider = function ({ children }) {
             capital: capital ? capital[0] : null,
           };
         });
-
-        setCountries(newCountriesData);
+        dispatch({ type: 'SET_COUNTRIES', payload: newCountriesData });
       } else {
-        setCountries([]);
+        dispatch({ type: 'SET_NO_COUNTRIES' });
       }
     } catch (error) {
-      setLoading(false);
+      console.log('error occured');
     }
   };
 
   useEffect(() => {
-    setRegion('');
+    dispatch({ type: 'SET_NO_REGION' });
+
     fetchCountries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm]);
+  }, [state.searchTerm]);
+
+  const inputHandler = () => {
+    dispatch({ type: 'SET_SEARCH_TERM', payload: searchValue.current.value });
+  };
+
+  const selectHandler = (e) => {
+    dispatch({ type: 'SET_REGION', payload: e.target.value });
+  };
 
   useEffect(() => {
     fetchCountries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [region]);
+  }, [state.region, state.searchTerm]);
+
+  useEffect(() => {
+    document.documentElement.classList = state.theme;
+  }, [state.theme]);
+
+  const toggleHandler = () => {
+    dispatch({ type: 'THEME_HANDLER', payload: state.theme });
+  };
 
   return (
     <AppContext.Provider
       value={{
-        loading,
-        setLoading,
-        region,
-        countries,
-        setRegion,
-        setSearchTerm,
+        ...state,
+        inputHandler,
+        selectHandler,
+        searchValue,
+        toggleHandler,
       }}
     >
       {children}
