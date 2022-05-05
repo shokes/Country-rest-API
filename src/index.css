@@ -226,7 +226,7 @@ span {
 .single-country-name {
   text-align: center;
   font-size: 3rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-weight: 800;
   color: var(--nav-color);
 }
@@ -324,6 +324,10 @@ span {
     font-size: 1.5rem;
   }
 
+  input {
+    width: 100%;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -346,9 +350,5 @@ span {
 @media (max-width: 33em) {
   .container {
     max-width: 28rem;
-  }
-
-  input {
-    width: 14rem;
   }
 }
