@@ -53,7 +53,7 @@ body {
 .nav-background {
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 4%);
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
 }
 
 input {
