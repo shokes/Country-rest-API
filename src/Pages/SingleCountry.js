@@ -29,6 +29,7 @@ const SingleCountry = function () {
             borders,
             subregion,
             status,
+            languages,
           } = countryData;
 
           const newCountry = {
@@ -40,6 +41,7 @@ const SingleCountry = function () {
             area,
             subregion,
             status,
+            languages,
             borders: borders ? borders.join(', ') : 'No Countries',
           };
 
@@ -72,6 +74,8 @@ const SingleCountry = function () {
       borders,
       area,
     } = country;
+
+    console.log(country);
     return (
       <div className='container'>
         <Link to='/' className='btn'>

@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useReducer, useRef } from 'react';
 import reducer from './reducer';
 
 // creating global context
+const AppContext = React.createContext();
 
+// the apis
 const MainUrl = 'https://restcountries.com/v3.1/name/';
 const regionUrl = 'https://restcountries.com/v3.1/region/';
-
-const AppContext = React.createContext();
 
 // creating app provider
 
