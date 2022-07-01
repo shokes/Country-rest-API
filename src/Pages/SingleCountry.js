@@ -17,6 +17,7 @@ const SingleCountry = function () {
         const response = await fetch(`${url}${capital}`);
         const data = await response.json();
         const countryData = data[0];
+        console.log(countryData);
 
         if (countryData) {
           const {
@@ -30,7 +31,11 @@ const SingleCountry = function () {
             subregion,
             status,
             languages,
+            currencies,
           } = countryData;
+
+          const lang = Object.values(languages);
+          const currency = Object.values(currencies);
 
           const newCountry = {
             population,
@@ -41,12 +46,12 @@ const SingleCountry = function () {
             area,
             subregion,
             status,
-            languages,
+            lang: lang.join(', '),
+            currency: currency[0].name,
             borders: borders ? borders.join(', ') : 'No Countries',
           };
 
           setCountry(newCountry);
-
           setLoading(false);
         }
       } catch (error) {
@@ -73,9 +78,10 @@ const SingleCountry = function () {
       name,
       borders,
       area,
+      lang,
+      currency,
     } = country;
 
-    console.log(country);
     return (
       <div className='container'>
         <Link to='/' className='btn'>
@@ -89,15 +95,22 @@ const SingleCountry = function () {
               <span className='span'>Native name: </span>
               {name}
             </p>
-
             <p className='detail'>
               <span className='span'>Capital: </span>
               {capital}
             </p>
-
             <p className='detail'>
               <span className='span'>Border countries: </span>
               {borders}
+            </p>
+
+            <p className='detail'>
+              <span className='span'>Languages: </span>
+              {lang}
+            </p>
+            <p className='detail'>
+              <span className='span'> Currency: </span>
+              {currency}
             </p>
             <p className='detail'>
               <span className='span'>Region: </span>
@@ -107,7 +120,6 @@ const SingleCountry = function () {
               <span className='span'>Subregion: </span>
               {subregion}
             </p>
-
             <p className='detail'>
               <span className='span'>Population: </span>
               {(population / 1000000).toFixed(2)} million
