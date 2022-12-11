@@ -51,7 +51,7 @@ body {
 }
 
 .nav-background {
-  padding: 2rem;
+  padding: 2rem 0;
   margin-bottom: 2rem;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
 }
@@ -242,7 +242,6 @@ span {
 
 .span {
   font-size: 2rem;
-  /* color: #fff; */
 }
 
 .theme-icon {
@@ -278,15 +277,11 @@ span {
 
 @media (max-width: 80em) {
   .container {
-    max-width: 60rem;
+    max-width: 90%;
   }
 }
 
 @media (max-width: 64em) {
-  .container {
-    max-width: 43rem;
-  }
-
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -310,9 +305,7 @@ span {
   html {
     font-size: 70%;
   }
-  .container {
-    max-width: 30rem;
-  }
+
   .single-country-name {
     font-size: 2rem;
   }
@@ -345,10 +338,5 @@ span {
 
   .flag-size {
     width: 80%;
-  }
-}
-@media (max-width: 33em) {
-  .container {
-    max-width: 28rem;
   }
 }
